@@ -27,17 +27,7 @@ const update = (req, res) => {
     }).catch(err => {
         res.json(err);
     })
-    
-            
-    
-    /*res.json({
-                "status": "succes",
-                "data": {
-                    "stats": docs
-                }
-            });*/
         
-    
 }
 
 const add = (req, res) => {
