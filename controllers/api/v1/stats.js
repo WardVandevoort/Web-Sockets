@@ -1,10 +1,4 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
-const statSchema = new Schema({
-    country: String,
-    number: Number
-})
-const Stat = mongoose.model("Stat", statSchema);
+const Stat = require("../../../models/Stat");
 
 const getAll = (req, res) => {
     Stat.find({}, (err, docs) => {
@@ -27,8 +21,8 @@ const update = (req, res) => {
 
 const add = (req, res) => {
     let stat = new Stat();
-    stat.country = "France";
-    stat.number = "8231";
+    stat.country = req.body.country;
+    stat.number = req.body.number;
     stat.save((err, doc) => {
         if(!err){
             res.json({
