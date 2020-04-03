@@ -14,9 +14,30 @@ const getAll = (req, res) => {
 }
 
 const update = (req, res) => {
+    let country = req.body.country;
+    let number = req.body.number;
     res.json({
-        "status": "succes",
+        "status": "succes!",
+        "number": number,
+        "country": country
     });
+    Stat.findOneAndUpdate({"country": country}, 
+    {"number": number}).then(doc => {
+        res.json(doc);
+    }).catch(err => {
+        res.json(err);
+    })
+    
+            
+    
+    /*res.json({
+                "status": "succes",
+                "data": {
+                    "stats": docs
+                }
+            });*/
+        
+    
 }
 
 const add = (req, res) => {
