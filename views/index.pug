@@ -1,5 +1,12 @@
-extends layout
-
-block content
-  h1= title
-  p Welcome 2 #{title}
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Document
+    link(rel='stylesheet', href='StatIndex.css')
+  body
+    section
+      h3 Amount of corona cases per country
+      ul#display
+    script(src='StatIndex.js')
