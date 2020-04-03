@@ -6,4 +6,6 @@ router.get("/", statsController.getAll);
 
 router.put("/updatestats", statsController.update);
 
+router.post("/addstats", statsController.add);
+
 module.exports = router;
