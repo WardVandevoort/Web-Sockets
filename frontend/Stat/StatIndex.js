@@ -1,5 +1,6 @@
+const base_url = "https://websockets-ward.herokuapp.com"
 
-fetch("http://localhost:3000/api/v1/stats", {
+fetch(base_url + "/api/v1/stats", {
     headers: {
         "Content-Type": "application/json"
     }
