@@ -20,3 +20,4 @@ let appendStat = (json) => {
     document.querySelector("#display").insertAdjacentHTML("afterbegin", stat);
 }
 
+
