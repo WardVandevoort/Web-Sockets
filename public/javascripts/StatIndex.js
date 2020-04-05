@@ -1,7 +1,7 @@
 
 const base_url = "https://websockets-ward.herokuapp.com"
 
-appendStat();
+window.onload = appendStat();
 
 primus = Primus.connect(base_url, {
     reconnect: {
