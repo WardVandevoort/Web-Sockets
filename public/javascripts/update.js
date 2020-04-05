@@ -14,9 +14,7 @@ let btn = document.querySelector("#submit").addEventListener("click", function()
 
     primus.write({
         "action": "addStat",
-        "data": {
-            "number": number,
-            "country": country
+        "data": json
         }
     })
 
