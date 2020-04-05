@@ -14,11 +14,6 @@ let btn = document.querySelector("#submit").addEventListener("click", function()
 
     primus.write({
         "action": "addStat",
-        "data": {
-            "number": number,
-            "country": country
-        }
-        
     });
 
     fetch(base_url + "/api/v1/stats/updatestats", {
