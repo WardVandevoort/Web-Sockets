@@ -8,6 +8,13 @@ primus = Primus.connect(base_url, {
     }
 });
 
+let appendStat = (json)  => {
+    json.data.stats.forEach(stat => {
+        let newStat = `<li>${stat.country} ${stat.number}</li>`;
+        document.querySelector("#display").insertAdjacentHTML("afterbegin", newStat);
+    });
+}
+
 fetch(base_url + "/api/v1/stats", {
     headers: {
         "Content-Type": "application/json"
@@ -15,18 +22,20 @@ fetch(base_url + "/api/v1/stats", {
 }).then(result => {
     return result.json();
 }).then(json => {
-    json.data.stats.forEach(stat => {
+    /*json.data.stats.forEach(stat => {
         let newStat = `<li>${stat.country} ${stat.number}</li>`;
         document.querySelector("#display").insertAdjacentHTML("afterbegin", newStat);
-    });
+    });*/
+
+    appendStat(json);
 
 }).catch(err => {
     console.log(err);
 })
 
-let appendStat = (json) => {
+/*let appendStat = (json) => {
     let stat = `<li>${json.data.stat.country} ${json.data.stat.number}</li>`;
     document.querySelector("#display").insertAdjacentHTML("afterbegin", stat);
-}
+}*/
 
 
