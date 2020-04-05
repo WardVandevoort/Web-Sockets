@@ -1,3 +1,5 @@
+import { add } from "../../controllers/api/v1/stats";
+
 const base_url = "https://websockets-ward.herokuapp.com"
 
 primus = Primus.connect(base_url, {
@@ -5,6 +7,12 @@ primus = Primus.connect(base_url, {
         max: Infinity // Number: The max delay before we try to reconnect.
       , min: 500 // Number: The minimum delay before we try reconnect.
       , retries: 10 // Number: How many times we should try to reconnect.
+    }
+});
+
+primus.on("data", (json) => {
+    if(json.action === "addStat"){
+        appendStat(json.data);
     }
 });
 
@@ -32,7 +40,7 @@ fetch(base_url + "/api/v1/stats", {
         "data": json
     })
 
-    appendStat(json);
+    //appendStat(json);
 
 }).catch(err => {
     console.log(err);
