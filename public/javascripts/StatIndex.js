@@ -12,6 +12,7 @@ primus = Primus.connect(base_url, {
 
 primus.on("data", (json) => {
     if(json.action === "addStat"){
+        document.querySelector("#display").innerHTML = " ";
         appendStat();
         console.log("ik werk");
 
