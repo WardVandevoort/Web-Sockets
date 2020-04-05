@@ -1,8 +1,6 @@
 
 const base_url = "https://websockets-ward.herokuapp.com"
 
-window.onload = appendStat();
-
 primus = Primus.connect(base_url, {
     reconnect: {
         max: Infinity // Number: The max delay before we try to reconnect.
@@ -37,6 +35,8 @@ let appendStat = () => {
         console.log(err);
     })
 }
+
+window.onload = appendStat();
 
 
 
