@@ -1,5 +1,13 @@
 const base_url = "https://websockets-ward.herokuapp.com"
 
+primus = Primus.connect(base_url, {
+    reconnect: {
+        max: Infinity // Number: The max delay before we try to reconnect.
+      , min: 500 // Number: The minimum delay before we try reconnect.
+      , retries: 10 // Number: How many times we should try to reconnect.
+    }
+});
+
 fetch(base_url + "/api/v1/stats", {
     headers: {
         "Content-Type": "application/json"
