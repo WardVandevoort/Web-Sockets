@@ -35,12 +35,7 @@ fetch(base_url + "/api/v1/stats", {
         document.querySelector("#display").insertAdjacentHTML("afterbegin", newStat);
     });*/
 
-    primus.write({
-        "action": "addStat",
-        "data": json
-    })
-
-    //appendStat(json);
+    appendStat(json);
 
 }).catch(err => {
     console.log(err);
