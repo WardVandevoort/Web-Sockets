@@ -1,4 +1,3 @@
-import { add } from "../../controllers/api/v1/stats";
 
 const base_url = "https://websockets-ward.herokuapp.com"
 
@@ -13,6 +12,8 @@ primus = Primus.connect(base_url, {
 primus.on("data", (json) => {
     if(json.action === "addStat"){
         appendStat(json.data);
+        console.log("ik werk");
+        console.log(json.data);
     }
 });
 
@@ -30,18 +31,14 @@ fetch(base_url + "/api/v1/stats", {
 }).then(result => {
     return result.json();
 }).then(json => {
-    /*json.data.stats.forEach(stat => {
+    json.data.stats.forEach(stat => {
         let newStat = `<li>${stat.country} ${stat.number}</li>`;
         document.querySelector("#display").insertAdjacentHTML("afterbegin", newStat);
-    });*/
-
-    primus.write({
-        "action": "addStat",
-        "data": json
-        
     });
 
-    appendStat(json);
+    
+
+    
 
 }).catch(err => {
     console.log(err);
