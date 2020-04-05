@@ -18,7 +18,7 @@ primus.on("data", (json) => {
 
 let appendStat = (json)  => {
     json.data.stats.forEach(stat => {
-        let newStat = `<li>${json.data.stat.country} ${json.data.stat.number}</li>`;
+        let newStat = `<li>${stat.country} ${stat.number}</li>`;
         document.querySelector("#display").insertAdjacentHTML("afterbegin", newStat);
     });
 }
