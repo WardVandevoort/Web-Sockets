@@ -8,7 +8,7 @@ fetch(base_url + "/api/v1/stats", {
     return result.json();
 }).then(json => {
     json.data.stats.forEach(stat => {
-        let newStat = `<li>${stat.country} ${stat.number}</li>`;
+        let newStat = `li${stat.country} ${stat.number}`;
         document.querySelector("#display").insertAdjacentHTML("afterbegin", newStat);
     });
 
@@ -17,7 +17,7 @@ fetch(base_url + "/api/v1/stats", {
 })
 
 let appendStat = (json) => {
-    let stat = `<li>${json.data.stat.country} ${json.data.stat.number}</li>`;
+    let stat = `li${json.data.stat.country} ${json.data.stat.number}`;
     document.querySelector("#display").insertAdjacentHTML("afterbegin", stat);
 }
 
